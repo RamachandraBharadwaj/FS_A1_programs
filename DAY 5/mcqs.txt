@@ -1,0 +1,926 @@
+Review
+Started on	Wednesday, 12 February 2025, 4:19 PM
+State	Finished
+Completed on	Wednesday, 12 February 2025, 4:46 PM
+Time taken	27 mins 10 secs
+Question 1
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test {
+
+    public static void main(String [] args) {
+
+          int a=10;
+
+                if(++a = 11)
+
+                 System.out.println(a);
+
+                else
+
+                 ++a;
+
+                 System.out.println(a);
+
+    }
+
+}
+
+
+Question 1Answer
+
+a.
+10
+
+
+b.
+Compilation fails
+
+
+c.
+Run time exception
+
+
+d.
+11
+
+
+e.
+12
+
+Question 2
+Complete
+Marked out of 1.00
+Flag question
+Question text
+Which of the following legally fill in the blank so you can run the main() method from the
+
+command line? (Choose all that apply)
+
+class Test
+
+{
+
+            public static void main(String _Names[]){}
+
+}
+
+
+Question 2Answer
+
+a.
+String names
+
+
+b.
+String _Names[]
+
+
+c.
+String... $n
+
+
+d.
+String[] _names
+
+
+e.
+String abc[]
+
+
+f.
+String[] 123
+
+
+g.
+None of the these.
+
+Question 3
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test
+
+{
+
+                String s;
+
+     public static void main(String[] args)
+
+                {
+
+                System.out.println(new Test().s);
+
+                }
+
+}
+Question 3Answer
+
+a.
+compiles but will not run
+
+
+b.
+compilation fails
+
+
+c.
+prints nothing
+
+
+d.
+null
+
+Question 4
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Demo
+
+  {
+
+             String title;
+
+             int value;
+
+     public Demo()
+
+            {
+
+             title += " class";
+
+             }
+
+     public Demo(int value) {
+
+             this.value = value;
+
+             title = "Demo";
+
+ 
+
+     }
+
+ }
+
+class  Test {
+
+ public static void main (String args[]){
+
+ Demo d = new Demo(5);
+
+ System.out.println(d.title);
+
+ }
+
+}
+
+
+Question 4Answer
+
+a.
+Class
+
+
+b.
+Class Demo
+
+
+c.
+Demo
+
+
+d.
+Demo class
+
+e.
+Compilation fails
+
+Question 5
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test { public static void main(String [] args) { int year; //Line-3 int day; //Line-4 year = 2050; //Line-5 System.out.println(year); //Line-6 } }
+Question 5Answer
+
+a.
+Compilation fails at Line-4
+
+
+b.
+Run time exception
+
+
+c.
+0
+
+d.
+2050
+
+e.
+Compilation fails at Line-3
+
+f.
+Compilation fails at Line-5
+
+Question 6
+Complete
+Marked out of 1.00
+Flag question
+Question text
+Which of the following are true? (Choose all that apply)
+
+ class Test
+
+ {
+
+             public static void main(String[] args){
+
+                          short numPets = 5;          // line4
+
+                         int numGrains = 5.6;        //line5
+
+                         String name = "Scruffy"; //line6
+
+                         numPets.length();          //line7
+
+                        numGrains.length();       //line8
+
+                        name.length();               //line9
+
+             }
+
+ }
+
+
+Question 6Answer
+
+a.
+Line 7 generates a compiler error.
+
+
+b.
+Line 9 generates a compiler error.
+
+
+c.
+The code compiles as is.
+
+
+d.
+Line 4 generates a compiler error.
+
+
+e.
+Line 6 generates a compiler error.
+
+
+f.
+Line 5 generates a compiler error.
+
+
+g.
+Line 8 generates a compiler error.
+
+Question 7
+Complete
+Marked out of 1.00
+Flag question
+Question text
+Suppose we have a class named Test. Which of the following statements are true?
+
+(Choose all that apply)
+
+ 
+
+1: public class Test {
+
+2: public static void main(String[] args) {
+
+3: Test one = new Test();
+
+4: Test two = new Test();
+
+5: Test three = one;
+
+6: one = null;
+
+7: Test four = one;
+
+8: three = null;
+
+9: two = null;
+
+10: two = new Test();
+
+11: System.gc();
+
+12: } }
+
+
+Question 7Answer
+
+a.
+The Test object from line 3 is first eligible for garbage collection immediately
+
+following line 6.
+
+
+
+b.
+The Test object from line 4 is first eligible for garbage collection immediately
+
+following line 9.
+
+
+
+c.
+The Test object from line 3 is first eligible for garbage collection immediately
+
+following line 8.
+
+
+
+d.
+The Test object from line 4 is first eligible for garbage collection immediately
+
+following line 11.
+
+
+
+e.
+The Test object from line 3 is first eligible for garbage collection immediately
+
+following line 12.
+
+
+
+f.
+The Test object from line 4 is first eligible for garbage collection immediately
+
+following line 12.
+
+
+Question 8
+Complete
+Marked out of 1.00
+Flag question
+Question text
+What does the following code output? public class Test { int count; public void Test() { count = 4; } public static void main(String[] args) { Test s = new Test(); System.out.println(s.count); } }
+Question 8Answer
+
+a.
+0
+
+
+b.
+Compilation fails on line 3.
+
+
+c.
+Compilation fails on line 7.
+
+
+d.
+4
+
+
+e.
+Compilation fails on line 4.
+
+
+f.
+Compilation fails on line 8.
+
+Question 9
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test {
+
+    public static void main(String [] args) {
+
+                                String x="abc";
+
+                                switch(x){                                                        //Line-4
+
+                                                case "abc" :                                        //Line-5
+
+                                                System.out.println("1");               //Line-6
+
+                                case "def" :                                                     //Line-7
+
+                                   System.out.println("2");                         //Line-8
+
+                                }
+
+                }
+
+}
+Question 9Answer
+
+a.
+Compilation fails Line-6
+
+
+b.
+1
+
+
+c.
+Compilation fails Line-8
+
+
+d.
+Compilation fails Line-7
+
+
+e.
+1
+2
+
+f.
+2
+
+
+g.
+Compilation fails Line-5
+
+
+h.
+Compilation fails Line-4
+Question 10
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test
+
+{
+
+            public static void main(String[] args){
+
+                                    Test t=new Test();
+
+                                    System.out.print(1);
+
+            }
+
+            protected void finalize(){
+
+                                    System.out.println(" "+2);
+
+                                    }
+
+}
+Question 10Answer
+
+a.
+1 2
+
+
+b.
+Compilation fails
+
+
+c.
+2
+
+
+d.
+Can’t predict the output
+
+
+e.
+1
+
+
+f.
+2 1
+
+Question 11
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class T
+
+{
+
+private T(){
+
+ System.out.println("hello world");
+
+}
+
+public static void main(String args[])
+
+{
+
+   T t=new T();
+
+ }
+
+}
+
+
+Question 11Answer
+
+a.
+prints nothing
+
+
+b.
+none of these
+
+
+c.
+compilation fails
+
+
+d.
+hello world
+
+Question 12
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test { public static void main(String[] args) { String s; System.out.println(s); } }
+Question 12Answer
+
+a.
+null
+
+b.
+prints nothing
+
+c.
+compilation fails
+
+d.
+compiles but will not run
+Question 13
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test{
+
+   public static void main(String[] args)
+
+                {
+
+                   float f=23.11f;
+
+                   short s=(short)f;
+
+                   System.out.println(s);
+
+                }
+
+}
+Question 13Answer
+
+a.
+Compilation fails
+
+
+b.
+0
+
+
+c.
+23.0
+
+
+d.
+23
+
+Question 14
+Complete
+Marked out of 1.00
+Flag question
+Question text
+Which represent the order in which the following statements can be assembled into a program that will compile successfully? (Choose all that apply)
+
+A: class Rabbit {}
+
+B: import java.util.*;
+
+C: package animals;
+
+
+Question 14Answer
+
+a.
+A, C
+
+
+b.
+C, A
+
+
+c.
+A, B
+
+
+d.
+C, B, A
+
+
+e.
+B, A
+
+
+f.
+B, C, A
+
+
+g.
+A, B, C
+
+Question 15
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test
+
+{
+
+                public static void main(String[] args)
+
+                {
+
+                                short a=0;
+
+                           for(;a<10;a++)
+
+                                  a=a+6;
+
+                               System.out.println(a);
+
+                
+
+                 }
+
+}
+
+
+Question 15Answer
+
+a.
+0
+
+
+b.
+Run time exception
+
+
+c.
+14
+
+
+d.
+Compilation fails
+
+Question 16
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test
+
+{
+
+            int x;
+
+            int y;
+
+                        public static void main(String[] args){
+
+                        Test t=new Test();
+
+                                    t.y=10;
+
+             System.out.println(t.x+t.y);
+
+ 
+
+            }
+
+}
+Question 16Answer
+
+a.
+Garbage value
+
+
+b.
+0
+
+c.
+Run time exception
+
+
+d.
+Compilation fails
+
+
+e.
+10
+
+Question 17
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test {
+
+public static void main(String [] args) {
+
+int x=1;
+
+if(x)
+
+        System.out.println("A"); 
+
+else
+
+      System.out.println("B"); 
+
+}
+
+}
+Question 17Answer
+
+a.
+Run time exception
+
+
+b.
+Compilation fails
+
+
+c.
+A
+
+
+d.
+B
+
+Question 18
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test
+
+{
+
+            public static void main(String[] args){
+
+                    int x=10;
+
+                    int y;
+
+                        System.out.println(x+y);
+
+ 
+
+            }
+
+}
+Question 18Answer
+
+a.
+10
+
+
+b.
+Compilation fails
+
+
+c.
+Run time exception
+
+
+d.
+Garbage value
+
+
+e.
+0
+
+Question 19
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test
+
+{
+
+public static void main(String[] args)
+
+{
+
+    int a = 4;
+
+    double b = 8;
+
+ 
+
+    System.out.println(a+b+"KMIT " );
+
+                }
+
+}
+
+
+Question 19Answer
+
+a.
+12KMIT
+
+
+b.
+48.0KMIT
+
+
+c.
+48KMIT
+
+
+d.
+12.0KMIT
+
+Question 20
+Complete
+Marked out of 1.00
+Flag question
+Question text
+class Test{
+
+  public static void main(String[] args) {
+
+            byte a=3;
+
+                int b=10;
+
+                float c=100.1f;
+
+                byte d;
+
+                d=b+a;                                 //Line-7
+
+                b= (int)a;                             // Line-8
+
+                a+=7;                                   // Line-9
+
+     System.out.println(d);               //Line-10
+
+     System.out.println(b);              // Line-11
+
+    System.out.println(a);                              //Line-12
+
+                }
+
+ }
+
+
+Question 20Answer
+
+a.
+Compilation fails at line 11
+
+
+b.
+Compilation succeeds
+
+
+c.
+Compilation fails at line 9
+
+
+d.
+Compilation fails at line 7
+
+
+e.
+Compilation fails at line 8
+
+
+f.
+Compilation fails at line 12
+
+
+g.
+Compilation fails at line 10
