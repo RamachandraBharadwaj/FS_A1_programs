@@ -58,7 +58,6 @@ class Solution
 		    
 		    fp=fp.next;
 		    sp=sp.next.next;
-		    
 		}
 		
 	}    

@@ -53,3 +53,14 @@
 // ------------
 // 1 <= time.length <= 10^5
 // 1 <= time[i], totalTrips <= 10^7
+
+
+import java.util.*;
+class BinaryTrips
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+         
+    }
+}
