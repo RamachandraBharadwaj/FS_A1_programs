@@ -1,0 +1,11 @@
+/* Retrieve employees who earn a commission between 300 and 1000.
+
+Expected Output Columns:
++--------+----------+
+| ename  | comm     |
++--------+----------+
+
+*/
+USE test;
+
+select ename,comm from emp where comm>=300 and comm<=1000;
