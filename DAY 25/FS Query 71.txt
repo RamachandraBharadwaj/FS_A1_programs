@@ -1,0 +1,13 @@
+/* Write a SQL query to list employee names and department names for employees with a salary greater than 2000 using INNER JOIN.
+
+
++-------+------------+
+| ename | dname      |
++-------+------------+
+*/
+USE test;
+
+select * from emp;
+select * from dept;
+
+select e.ename,d.dname from emp e join dept d on e.deptno=d.deptno where sal>2000;

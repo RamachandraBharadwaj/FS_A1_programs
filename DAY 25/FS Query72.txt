@@ -1,0 +1,10 @@
+/* Write a SQL query to retrieve all employees and their department locations, 
+including those without departments, using LEFT JOIN.
+
++--------+----------+
+| ename  | location |
++--------+----------+
+*/
+USE test; 
+
+select e.ename,d.location from emp e left join dept d on e.deptno=d.deptno; 

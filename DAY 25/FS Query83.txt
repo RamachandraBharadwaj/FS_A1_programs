@@ -1,0 +1,15 @@
+/* Write a SQL query to list departments with no assigned employees using 
+RIGHT JOIN.
+
++--------+---------+
+| deptno | dname   |
++--------+---------+
+
+*/
+USE test; 
+
+/*
+select e.deptno,d.dname from emp e right join dept d on e.deptno=d.deptno where e.deptno is null;
+*/
+
+select d.deptno,d.dname from emp e right join dept d on d.deptno =e.deptno where not exists (select 1 from emp where deptno=d.deptno);

@@ -1,0 +1,11 @@
+/* Write a SQL query to show the total commission and average salary per job 
+for jobs with at least 2 employees.
+
++----------+-----------+-------------+
+| job      | SUM(comm) | AVG(sal)    |
++----------+-----------+-------------+
+
+*/
+USE test; 
+
+select job,sum(comm),avg(sal) from emp group by job having count(*)>=2;

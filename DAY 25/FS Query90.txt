@@ -1,0 +1,14 @@
+/* Write a SQL query to list employee names and department names using an
+implicit join, ordered by employee name.
+
++--------+------------+
+| ename  | dname      |
++--------+------------+
+
+*/
+USE test; 
+select * from emp;
+select * from dept;
+
+select e.ename,d.dname from emp e join dept d on e.deptno=d.deptno order by e.ename;
+

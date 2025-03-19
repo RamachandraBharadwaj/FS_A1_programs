@@ -1,0 +1,10 @@
+/* Write a SQL query to list employees and departments where the employee’s 
+hire date is after 1980 using INNER JOIN.
+
++--------+------------+------------+
+| ename  | dname      | hiredate   |
++--------+------------+------------+
+*/
+USE test; 
+
+select e.ename,d.dname,e.hiredate from emp e inner join dept d on e.deptno=d.deptno where e.hiredate>1980;  

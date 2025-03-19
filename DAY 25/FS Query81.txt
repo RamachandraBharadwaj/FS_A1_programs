@@ -1,0 +1,14 @@
+/* Write a SQL query to list employee names and department names where the 
+department is in 'Chicago' using INNER JOIN.
+
++-------+-------+
+| ename | dname |
++-------+-------+
+*/
+USE test; 
+
+
+select * from emp;
+select * from dept;
+
+select e.ename,d.dname from emp e inner join dept d on e.deptno=d.deptno where d.location in ('Chicago');
