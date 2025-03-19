@@ -1,0 +1,483 @@
+Quiz_SQL_Constraints
+Started on	Tuesday, 18 March 2025, 4:26 PM
+State	Finished
+Completed on	Tuesday, 18 March 2025, 4:44 PM
+Time taken	18 mins 10 secs
+Marks	16.00/20.00
+Grade	80.00 out of 100.00
+Question 1
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `library (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school(sno) ON DELETE CASCADE)`, with `school (sno=101)` and `library (sno=101)`, what happens if you delete `sno=101` from `school`?
+
+Question 1Answer
+
+a.
+Deletion fails due to `FOREIGN KEY`.
+
+
+b.
+Only `school` row is deleted, `library` remains.
+
+
+c.
+Deletion fails due to `PRIMARY KEY`.
+
+
+d.
+Both `school` and `library` rows are deleted.
+
+Question 2
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+In `school (sno integer PRIMARY KEY)` and `library (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school(sno) ON DELETE CASCADE)`, with `school (101, 102)` and `library (101, 102)`, what happens if you delete from `school` where `sno > 100`?
+
+Question 2Answer
+
+a.
+Deletes `school (101, 102)` and `library (102)`.
+
+
+b.
+Deletes `school (101, 102)` and `library (101, 102)`.
+
+
+c.
+Deletes `school (101, 102)` only.
+
+
+d.
+Deletion fails due to `FOREIGN KEY`.
+
+Question 3
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `school (sno integer PRIMARY KEY)` and `library (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school(sno))`, with `school (101, 102)` and `library (101)`, what happens if you update `school.sno=101` to `102`?
+
+Question 3Answer
+
+a.
+Update succeeds, `library.sno=101` becomes `102`.
+
+
+b.
+Update fails due to `FOREIGN KEY` in `library`.
+
+
+c.
+Update fails due to `PRIMARY KEY` in `school`.
+
+
+d.
+Update succeeds, `library.sno=101` remains.
+
+Question 4
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student2`, after inserting `(NULL, 1, 'Arun')`, `(101, 2, 'Subba')`, and `(NULL, 3, 'Ravi')`, what happens if you insert `(NULL, 1, 'Kavita')`?
+
+Question 4Answer
+
+a.
+Insert fails due to `PRIMARY KEY`.
+
+
+b.
+Insert fails due to `UNIQUE` on `Sno`.
+
+c.
+Insert fails due to `UNIQUE` on `collegeId`.
+
+
+d.
+Insert succeeds.
+
+Question 5
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student2`, after inserting `(101, 1, 'Arun')`, what happens if you update `collegeId=1` to `NULL` and then insert `(102, 1, 'Subba')`?
+
+Question 5Answer
+
+a.
+Insert fails due to `UNIQUE` on `collegeId`.
+
+
+b.
+Both succeed.
+
+c.
+Update fails due to `UNIQUE` on `Sno`.
+
+d.
+Insert succeeds, but update fails.
+Question 6
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student4`, after inserting `('Ravi', 'Reddy', 40)` and `('Subba', 'Rao', 40)`, what happens if you update `firstname='Subba'` to `'Ravi'`?
+
+Question 6Answer
+
+a.
+Update fails due to `NOT NULL`.
+
+
+b.
+Update fails due to composite `PRIMARY KEY` violation.
+
+
+c.
+Update succeeds.
+
+
+d.
+Update succeeds but merges rows.
+
+Question 7
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student3`, after inserting `(101, 'Arun')` and `(102, 'Subba')`, what happens if you update `Sno=101` to `102`?
+
+Question 7Answer
+
+a.
+Update fails due to `NOT NULL`.
+
+
+b.
+Update succeeds, deleting `(102, 'Subba')`.
+
+
+c.
+Update succeeds, merging rows.
+
+
+d.
+Update fails due to `PRIMARY KEY` uniqueness.
+
+Question 8
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `CUSTOMERS2 (ID INT NOT NULL, NAME VARCHAR(20) NOT NULL, Country VARCHAR(30) DEFAULT 'india')`, after inserting `(1, 'Ravi')`, can you update `NAME='Ravi'` to `NULL`?
+
+Question 8Answer
+
+a.
+No, because `NAME` is `NOT NULL`.
+
+
+b.
+Yes, because `NAME` has a default.
+
+
+c.
+No, because `ID` is `PRIMARY KEY`.
+
+
+d.
+Yes, but `Country` becomes `NULL`.
+
+Question 9
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+In `library (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school(sno))` with `school (sno=101)`, after inserting `(101, 'C')` into `library`, can you update `library.sno=101` to `102` if `school` has no `sno=102`?
+
+Question 9Answer
+
+a.
+Update succeeds but breaks the reference.
+
+
+b.
+Update fails due to `PRIMARY KEY`.
+
+
+c.
+Update succeeds.
+
+
+d.
+Update fails due to `FOREIGN KEY`.
+
+Question 10
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student4`, after inserting `('Ravi', 'Reddy', 40)`, what happens if you insert `('Ravi', 'Reddy', NULL)`?
+
+Question 10Answer
+
+a.
+Insert succeeds because `Marks` isn’t constrained.
+
+
+b.
+Insert fails due to `NOT NULL`.
+
+
+c.
+Insert succeeds but overwrites the first row.
+
+
+d.
+Insert fails due to composite `PRIMARY KEY`.
+
+Question 11
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student2 (Sno integer UNIQUE, collegeId integer UNIQUE)`, after inserting `(NULL, 1)` and `(101, NULL)`, can you insert `(NULL, NULL)`?
+
+Question 11Answer
+
+a.
+No, because `Sno` already has a `NULL`.
+
+
+b.
+No, because `collegeId` already has a `NULL`.
+
+
+c.
+Yes, because `UNIQUE` allows multiple `NULL`s.
+
+
+d.
+Yes, but only if `Sno` is `NOT NULL`.
+
+Question 12
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student4 (firstname varchar(10), lastname varchar(10), PRIMARY KEY(firstname, lastname))`, after inserting `('Ravi', 'Reddy')`, can you insert `('Ravi', NULL)`?
+
+Question 12Answer
+
+a.
+No, because `firstname` must be unique alone.
+
+
+b.
+No, because composite `PRIMARY KEY` requires non-null values.
+
+
+c.
+Yes, but only if `firstname` is unique.
+
+
+d.
+Yes, because `lastname` isn’t explicitly `NOT NULL`.
+
+Question 13
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `library1 (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school1(sno))`, with `school1 (101, 102)` and `library1 (101)`, can you delete `school1.sno=102`?
+
+Question 13Answer
+
+a.
+No, because `FOREIGN KEY` prevents it.
+
+
+b.
+Yes, but `library1.sno=101` is also deleted.
+
+
+c.
+Yes, because `library1` doesn’t reference `102`.
+
+
+d.
+No, because `sno=102` is a `PRIMARY KEY`.
+
+Question 14
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student3 (Sno integer PRIMARY KEY)`, after inserting `(101, 'Arun')`, what happens if you update `Sno=101` to `NULL`?
+
+Question 14Answer
+
+a.
+Update fails due to `UNIQUE` violation.
+
+
+b.
+Update succeeds but deletes the row.
+
+
+c.
+Update succeeds.
+
+
+d.
+Update fails due to `PRIMARY KEY`’s `NOT NULL` requirement.
+
+Question 15
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `school (sno integer PRIMARY KEY)` and `library (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school(sno) ON UPDATE CASCADE)`, after inserting `(102)` in `school` and `(102)` in `library`, what happens if you update `school.sno=102` to `103`?
+
+Question 15Answer
+
+a.
+Update fails due to `PRIMARY KEY` conflict.
+
+
+b.
+`school.sno` becomes `103`, `library.sno` remains `102`.
+
+
+c.
+Update fails due to `FOREIGN KEY`.
+
+
+d.
+Both `school.sno` and `library.sno` become `103`.
+
+Question 16
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student2 (Sno integer UNIQUE, collegeId integer UNIQUE)`, after inserting `(101, 1)` and `(102, 2)`, what happens if you update `Sno=102` to `101`?
+
+Question 16Answer
+
+a.
+Update fails due to `UNIQUE` on `Sno`.
+
+
+b.
+Update succeeds but swaps rows.
+
+
+c.
+Update fails due to `UNIQUE` on `collegeId`.
+
+
+d.
+Update succeeds.
+
+Question 17
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+In `CUSTOMERS (ID INT NOT NULL, NAME VARCHAR(20) NOT NULL, PRIMARY KEY (ID))`, after inserting `(1, 'Ravi')`, what happens if you insert `(1, 'Subbu')`?
+
+Question 17Answer
+
+a.
+Insert fails due to `PRIMARY KEY` uniqueness.
+
+
+b.
+Insert succeeds, overwriting `(1, 'Ravi')`.
+
+
+c.
+Insert fails due to `UNIQUE` on `NAME`.
+
+
+d.
+Insert fails due to `NOT NULL` on `NAME`.
+
+Question 18
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `student4`, after inserting `('Ravi', 'Reddy', 40)` and `('Kavita', 'Reddy', 40)`, can you update `lastname='Reddy'` to `NULL` for all rows?
+
+Question 18Answer
+
+a.
+Yes, because `lastname` isn’t `NOT NULL`.
+
+
+b.
+Yes, but only for one row.
+
+
+c.
+No, because composite `PRIMARY KEY` requires non-null values.
+
+
+d.
+No, because `firstname` must be unique.
+
+Question 19
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+In `student (Sno integer NOT NULL, Sname varchar(10), Marks integer)` and `student3 (Sno integer PRIMARY KEY, Sname varchar(10))`, what happens if you insert `(NULL, 'Arun', 50)` into both tables?
+
+Question 19Answer
+
+a.
+Fails in `student` due to `NOT NULL`, fails in `student3` due to `PRIMARY KEY`.
+
+
+b.
+Fails in `student` due to `NOT NULL`, succeeds in `student3`.
+
+
+c.
+Succeeds in both with `Sno` as `NULL`.
+
+
+d.
+Fails in both due to `NOT NULL`.
+
+Question 20
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+In `library (sno integer PRIMARY KEY, FOREIGN KEY (sno) REFERENCES school(sno) ON DELETE CASCADE)`, with `school (101)` and `library (101)`, can you update `school.sno=101` to `101`?
+
+Question 20Answer
+
+a.
+Update fails due to `PRIMARY KEY`.
+
+
+b.
+Update succeeds with no effect.
+
+
+c.
+Update fails due to `FOREIGN KEY`.
+
+
+d.
+`library.sno=101` is deleted.
+

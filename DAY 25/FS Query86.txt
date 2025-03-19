@@ -1,0 +1,11 @@
+/* Write a SQL query to retrieve average salaries per department using INNER 
+JOIN and GROUP BY.
+
++--------+------------+-------------+
+| deptno | dname      | avg_salary  |
++--------+------------+-------------+
+
+*/
+USE test; 
+
+select e.deptno,d.dname,avg(e.sal) as "avg_salary" from emp e join dept d on e.deptno=d.deptno group by deptno;

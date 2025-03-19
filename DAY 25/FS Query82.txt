@@ -1,0 +1,11 @@
+/* 
+Retrieve Department-wise Total Salary and Number of Employees (Using GROUP BY and JOIN)
+
++------------+---------------+--------------+
+| dname      | num_employees | total_salary |
++------------+---------------+--------------+
+
+*/
+USE test; 
+
+select d.dname,count(e.empno) as num_employees,sum(e.sal) as total_salary from dept d left join emp e on d.deptno=e.deptno group by d.deptno;

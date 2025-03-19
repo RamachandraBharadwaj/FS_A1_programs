@@ -1,0 +1,10 @@
+/* Write a SQL query to find the maximum salary and employee count per department 
+for departments with more than 2 employees.
+
++--------+----------+----------+
+| deptno | MAX(sal) | COUNT(*) |
++--------+----------+----------+
+*/
+USE test; 
+
+select deptno,max(sal),count(*) from emp group by deptno having count(*)>2;

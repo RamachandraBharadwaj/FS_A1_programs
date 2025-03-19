@@ -1,0 +1,11 @@
+/* Write a SQL query to list all employees and departments, including those 
+without matches, using a simulated FULL JOIN.
+
+
++-------+--------+--------+------------+----------+
+| empno | ename  | deptno | dname      | location |
++-------+--------+--------+------------+----------+
+*/
+USE test; 
+
+(select e.empno,e.ename,d.deptno,d.dname,d.location from emp e left join dept d on e.deptno=d.deptno) union (select e.empno,e.ename,d.deptno,d.dname,d.location from emp e right join dept d on e.deptno=d.deptno);

@@ -1,0 +1,14 @@
+/* Write a SQL query to find managers and the number of employees they manage in
+departments located in 'New York', using the primary key and foreign key 
+constraints.
+
++--------------+-----------+
+| manager_name | emp_count |
++--------------+-----------+
+*/
+USE test; 
+
+select * from emp;
+select * from dept;
+
+select e.ename as manager_name, count(*) as emp_count from emp e join emp e2 on e.empno=e2.mgr where e.deptno=10 group by e.empno ;

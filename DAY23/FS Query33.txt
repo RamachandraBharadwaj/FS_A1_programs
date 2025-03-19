@@ -1,0 +1,12 @@
+/* Find the department name where ‘JONES’ works.
+
+Expected Output Columns:
+------------------------
++----------+
+| dname    |
++----------+
+
+*/
+USE test;
+
+select dname from dept where deptno=(select deptno from emp where ename="JONES");

@@ -1,0 +1,11 @@
+/*  Write a SQL query to find the minimum and maximum salaries per department, 
+excluding department 20.
+
++--------+----------+----------+
+| deptno | MIN(sal) | MAX(sal) |
++--------+----------+----------+
+
+*/
+USE test; 
+
+select deptno,min(sal),max(sal) from emp where deptno!=20 group by deptno order by deptno;

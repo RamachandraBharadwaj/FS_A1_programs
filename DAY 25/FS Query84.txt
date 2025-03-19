@@ -1,0 +1,13 @@
+/* Write a SQL query to combine employee and department data with duplicates 
+using UNION ALL.
+
+
++--------+------------+
+| ename  | dname      |
++--------+------------+
+
+*/
+USE test; 
+
+
+select e.ename,d.dname from emp e left join dept d on e.deptno=d.deptno union all select e.ename,d.dname from emp e right join dept d on e.deptno=d.deptno;

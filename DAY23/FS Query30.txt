@@ -1,0 +1,15 @@
+/* Find employees who have the same manager as ‘BLAKE’.
+
+Expected Output Columns:
+------------------------
++-------+------+
+| ename | mgr  |
++-------+------+
+
+*/
+USE test;
+
+/*
+select * from emp;
+*/
+select ename,mgr from emp where mgr in (select mgr from emp where ename="BLAKE") and ename NOT IN ("BLAKE");

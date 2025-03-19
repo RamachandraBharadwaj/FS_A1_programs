@@ -1,0 +1,10 @@
+/* Write a SQL query to generate all possible employee-department combinations 
+using CROSS JOIN.
+
++--------+------------+
+| ename  | dname      |
++--------+------------+
+*/
+USE test; 
+
+select e.ename,d.dname from emp e cross join dept d;

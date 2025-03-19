@@ -1,0 +1,11 @@
+/* Write a SQL query to find the total salary per department and job
+combination, excluding the president job.
+
++--------+----------+----------+
+| deptno | job      | SUM(sal) |
++--------+----------+----------+
+
+*/
+USE test; 
+
+select deptno,job,sum(sal) from emp where job!="PRESIDENT" group by deptno,job;
