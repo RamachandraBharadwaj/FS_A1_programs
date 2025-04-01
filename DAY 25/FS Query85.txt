@@ -1,0 +1,17 @@
+/* Write a SQL query to list employees and their managers’ names using a LEFT 
+JOIN for employees without managers.
+
++----------+---------+
+| employee | manager |
++----------+---------+
+
+*/
+USE test; 
+
+/*
+
+select * from emp;
+select * from dept;
+*/
+
+select e.ename as employee, e2.ename as manager from emp e left join emp e2 on e.mgr=e2.empno ;
