@@ -1,0 +1,10 @@
+/* Write a SQL query to simulate a FULL OUTER JOIN to list all employees and 
+departments, including unmatched rows.
+
++-------+--------+--------+------------+
+| empno | ename  | deptno | dname      |
++-------+--------+--------+------------+
+*/
+USE test; 
+
+select e.empno,e.ename,d.deptno,d.dname from emp e left join dept d on e.deptno=d.deptno union  select e.empno,e.ename,d.deptno,d.dname from emp e right join dept d on e.deptno=d.deptno;
