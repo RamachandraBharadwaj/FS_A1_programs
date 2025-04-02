@@ -132,6 +132,7 @@ class FenWickTree
     public static void update(int idx, int val)
     {
         int diff=val-arr[idx];
+        arr[idx]=val;
         init(idx,diff);
         
     }
