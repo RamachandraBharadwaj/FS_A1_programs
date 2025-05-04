@@ -33,15 +33,16 @@
 //       STRING SHOULD CONTAIN ONLY LOWER CASE ALPHABETS(a to z  only)
 
 import java.util.*;
+
 class TrieNode {
     char val;
     boolean isEnd;
     TrieNode[] children;
-    
+
     public TrieNode() {
         this.children = new TrieNode[26];
     }
-    
+
     public TrieNode(char c) {
         this();
         this.val = c;
@@ -50,49 +51,51 @@ class TrieNode {
 
 class Trie {
     private TrieNode root;
-    
+
     public Trie() {
         this.root = new TrieNode();
     }
-    
+
     public void insert(String word) {
         TrieNode curr = this.root;
-        
+
         for (char c : word.toCharArray()) {
             if (curr.children[c - 'a'] == null) {
                 curr.children[c - 'a'] = new TrieNode(c);
             }
-            
             curr = curr.children[c - 'a'];
         }
-        
+
         curr.isEnd = true;
     }
-    
+
     public String longestCommonPrefix() {
-        //Write your code here and return string
-        int min=0;
-        
-        TrieNode curr=this.root;
-        Queue<Object[]> q = new LinkedList<>();
-        q.add(new Object[]{curr,-1});
-        
-        while(!q.isEmpty())
-        {
-            Object pairo[]= q.poll();
-            TrieNode curr = (TrieNode) pairo[0];
-            int dis=pairo[1];
-            
-            for(int i=0;i<26;i++)
-            {
-                
+        StringBuilder prefix = new StringBuilder();
+        TrieNode curr = this.root;
+
+        while (true) {
+            int count = 0;
+            int index = -1;
+
+            // Count non-null children
+            for (int i = 0; i < 26; i++) {
+                if (curr.children[i] != null) {
+                    count++;
+                    index = i;
+                }
             }
-            
+
+            if (count != 1 || curr.isEnd) {
+                break;
+            }
+
+            // Append the character and move to next node
+            curr = curr.children[index];
+            prefix.append((char) (index + 'a'));
         }
-        
+
+        return prefix.toString();
     }
-    
-   
 }
 
 class Solution {
@@ -100,20 +103,18 @@ class Solution {
         if (strs == null || strs.length == 0) {
             return "";
         }
-        
+
         Trie trie = new Trie();
-        
         for (String word : strs) {
             trie.insert(word);
         }
-        
+
         return trie.longestCommonPrefix();
     }
-	public static void main(String[] args)
-	{
-		Scanner sc=new Scanner(System.in);
-		String[] str = sc.nextLine().trim().split(",");
-		System.out.println(new Solution().longestCommonPrefix(str));
-	}
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] str = sc.nextLine().trim().split(",");
+        System.out.println(new Solution().longestCommonPrefix(str));
+    }
 }
