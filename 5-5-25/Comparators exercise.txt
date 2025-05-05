@@ -1,0 +1,8 @@
+Comparator : 4 different comparators based on the "Account" attributes must be declared ans used to sort data repesctively
+
+Account: object
+account_no
+account type
+balance
+account_name
+Date_of_account_opening 
