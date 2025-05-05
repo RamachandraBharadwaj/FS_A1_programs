@@ -62,70 +62,89 @@
 
 import java.util.*;
 
-class IndexPairs
-{
-    static int num_chars=26;
-    static boolean isDelted=false;
-    
-    static class TrieNode
-    {
-        TrieNode children[]= new TrieNode[num_chars];
+class IndexPairs {
+    static int num_chars = 26;
+
+    static class TrieNode {
+        TrieNode[] children = new TrieNode[num_chars];
         boolean isEndOfWord;
-        
-        TrieNode()
-        {
-            isEndOfWord=false;
-            for(int i=0;i<num_chars;i++)
-            {
-                children[i]=null;
+
+        TrieNode() {
+            isEndOfWord = false;
+            for (int i = 0; i < num_chars; i++) {
+                children[i] = null;
             }
         }
     }
-    
+
     static TrieNode root;
-    
-    static void insert(String key)
-    {
+
+    // Insert word into Trie
+    static void insert(String key) {
         int level;
-        int length=key.length();
+        int length = key.length();
         int index;
-        
-        TrieNode currentNode=root;
-        
-        for(level=0;level<length;level++)
-        {
-            index=key.charAt(level)-'a';
-            if(currentNode.children[index]==null)
-            {
-                currentNode.children[index]=new TrieNode();
+
+        TrieNode currentNode = root;
+
+        for (level = 0; level < length; level++) {
+            index = key.charAt(level) - 'a';
+            if (currentNode.children[index] == null) {
+                currentNode.children[index] = new TrieNode();
             }
-            
-            currentNode=currentNode.children[index];
-            
+
+            currentNode = currentNode.children[index];
         }
-        
-        currentNode.isEndOfWord=true;
+
+        currentNode.isEndOfWord = true;
     }
-    
-    static boolean search(String key)
-    {
-        int level;
-        int length=key.length();
-        
-        TrieNode currentNode=root;
-        
-        
-        for(level=0;level<length;level++)
-        {
-            index=key.charAt(level)-'a';
-            if(currentNode.children[index]==null)
-            {
-                return false;
+
+    // Search for matches starting from index 'start' in STR
+    static List<int[]> searchAllFrom(String STR, int start) {
+        List<int[]> result = new ArrayList<>();
+        TrieNode currentNode = root;
+
+        for (int i = start; i < STR.length(); i++) {
+            int index = STR.charAt(i) - 'a';
+            if (index < 0 || index >= num_chars || currentNode.children[index] == null)
+                break;
+
+            currentNode = currentNode.children[index];
+            if (currentNode.isEndOfWord) {
+                result.add(new int[]{start, i});
             }
-            
-            currentNode=currentNode.children[index];
         }
-        
-        return (currentNode.isEndOfWord);
-    }   
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String STR = sc.nextLine();
+        String[] words = sc.nextLine().split(" ");
+
+        root = new TrieNode();
+
+        // Insert all words into Trie
+        for (String word : words) {
+            insert(word);
+        }
+
+        List<int[]> result = new ArrayList<>();
+
+        // Try to find matches starting from each index
+        for (int i = 0; i < STR.length(); i++) {
+            result.addAll(searchAllFrom(STR, i));
+        }
+
+        result.sort((a, b) -> {
+            if (a[0] != b[0]) return Integer.compare(a[0], b[0]);
+            return Integer.compare(a[1], b[1]);
+        });
+
+        for (int[] pair : result) {
+            System.out.println(pair[0] + " " + pair[1]);
+        }
+    }
 }
