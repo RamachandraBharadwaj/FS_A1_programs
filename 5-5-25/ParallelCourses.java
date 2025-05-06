@@ -61,41 +61,87 @@
 import java.util.*;
 class ParallelCourses 
 {
-	public int minimumSemesters(int numCourses, int[][] prerequisites,int maxCourses) 
-	{
+    public int minimumSemesters(int numCourses, int[][] prerequisites,int maxCourses) 
+    {
         // create an adjacency list to represent the graph
-		int graph[][]=new int[numCourses+1][numCourses+1];
-		int[] indegree = new int[numCourses+1];
-
-        // populate the adjacency list using the prerequisites array
-       	for (int[] prerequisite : prerequisites) 
-		{
-            int u = prerequisite[0];
-            int v = prerequisite[1];
-            graph[u][v]=1;
-            indegree[v]++;
-		}
- 
-		// Perform a topological sort to find the order in which the courses should be taken
-        //Write your code here and return minimum number of semesters required to study all the courses, 
-        //if not possible return -1
+        int graph[][]=new int[numCourses+1][numCourses+1];
+        int[] indegree = new int[numCourses+1];
+    
+            // populate the adjacency list using the prerequisites array
+               for(int[] prerequisite : prerequisites) 
+            {
+                int u = prerequisite[0];
+                int v = prerequisite[1];
+                graph[u][v]=1;
+                indegree[v]++;
+        }
+     
+            // Perform a topological sort to find the order in which the courses should be taken
+            //Write your code here and return minimum number of semesters required to study all the courses, 
+            //if not possible return -1
+            
+        int level=0;
+        int count=0;
+        Queue<Integer> q= new LinkedList<>();
+        for(int i=1;i<indegree.length;i++)
+        {
+            if(indegree[i]==0)
+            {
+                q.add(i);
+            }
+        }
+        //Queue<Integer> q= new LinkedList<>();
+        while(!q.isEmpty())
+        {
+            int s=q.size();
+            int l=Math.min(s,maxCourses);
+            System.out.println("LEVEL");
+            for(int i=0;i<l;i++)
+            {
+                int u=q.poll();
+                System.out.println(Arrays.toString(indegree));
+                indegree[u]-=1;
+                System.out.println("u : "+u);
+                for(int j=1;j<graph[0].length;j++)
+                {
+                    if(graph[u][j]==1)
+                    {
+                        //q.add(j);
+                        indegree[j]-=1;
+                        if(indegree[j]==0)
+                        {
+                            q.add(j);
+                        }
+                    }
+                }
+                count+=1;
+            }
+            level+=1;
+        }
         
-	}
-
-	public static void main(String[] args) 
-	{	Scanner s=new Scanner(System.in);
-		int numCourses=s.nextInt();
-		int c=s.nextInt();
-		int prerequisites[][]=new int[c][2];
-		for(int i=0;i<c;i++)
-		{
-			for(int j=0;j<2;j++)
-			{
-				prerequisites[i][j]=s.nextInt();
-			}
-		}
-		int maxCourses=s.nextInt();
-		ParallelCourses p=new ParallelCourses();
-		System.out.println(p.minimumSemesters(numCourses, prerequisites, maxCourses)); 
-	}
+        if(count==numCourses)
+        {
+            return level;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    public static void main(String[] args) 
+    {    Scanner s=new Scanner(System.in);
+    int numCourses=s.nextInt();
+    int c=s.nextInt();
+    int prerequisites[][]=new int[c][2];
+    for(int i=0;i<c;i++)
+    {
+        for(int j=0;j<2;j++)
+        {
+            prerequisites[i][j]=s.nextInt();
+        }
+    }
+    int maxCourses=s.nextInt();
+    ParallelCourses p=new ParallelCourses();
+    System.out.println(p.minimumSemesters(numCourses, prerequisites, maxCourses)); 
+    }
 }
